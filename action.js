@@ -17,7 +17,7 @@ module.exports = class {
     // const issueId = this.argv.issue;
     const { comment } = this.argv;
 
-    const issuesIDs = this.argv.issue.split(",");
+    const issuesIDs = this.argv.issue.split(',');
     console.log(`All issues IDs: ${issuesIDs}`)
     for (let i = 0; i < issuesIDs.length; i++) {
       const issueId = issuesIDs[i];
@@ -30,8 +30,8 @@ module.exports = class {
   }
 };
 
-function makeProperIssueID(issueID) {
-  issueId = issueId.toUpperCase();
+function makeProperIssueID(issue) {
+  issueId = issue.toUpperCase();
   issueId.replace(" ", "-");
   if (!issueId.includes("VTX-")) {
     // do nothing
