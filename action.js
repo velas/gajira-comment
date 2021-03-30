@@ -32,11 +32,9 @@ module.exports = class {
 
 function makeProperIssueID(issue) {
   let issueId = issue.toUpperCase();
-  issueId.replace(" ", "-");
-  if (!issueId.includes("VTX-")) {
-    // do nothing
-  } else {
-    issueId = "VTX-" + issueId;
+  issueId.replace(' ', '-');
+  if (!issueId.includes('VTX-')) {
+    issueId = 'VTX-' + issueId;
   }
   return issueId;
 }
