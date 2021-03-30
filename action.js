@@ -14,21 +14,24 @@ module.exports = class {
   }
 
   async execute() {
-    const issueId = this.argv.issue;
+    // const issueId = this.argv.issue;
     const { comment } = this.argv;
 
-    if (Array.isArray(issueId)) {
-      console.log(`Issues: ${issueId}`);
-      for (let i = 0; i < issueId.length; i++) {
-        issueId = makeProperIssueID(issueId);
-        console.log(`Adding comment to ${issueId}: \n${comment}`);
-        await this.Jira.addComment(issueId, { body: comment });
-      }
-    } else {
+    const issuesIDs = this.argv.issue.split(", ");
+    console.log(`All issues IDs: ${issuesIDs}`)
+    // if (Array.isArray(issueId)) {
+    console.log(`Issues: ${issueId}`);
+    for (let i = 0; i < issuesIDs.length; i++) {
+      const issueId = issuesIDs[i];
       issueId = makeProperIssueID(issueId);
       console.log(`Adding comment to ${issueId}: \n${comment}`);
       await this.Jira.addComment(issueId, { body: comment });
     }
+    // } else {
+    //   issueId = makeProperIssueID(issueId);
+    //   console.log(`Adding comment to ${issueId}: \n${comment}`);
+    //   await this.Jira.addComment(issueId, { body: comment });
+    // }
     return {};
   }
 };
@@ -39,7 +42,7 @@ function makeProperIssueID(issueID) {
   if (!issueId.includes("VTX-")) {
     // do nothing
   } else {
-    issueId = 'VTX-' + issueId;
+    issueId = "VTX-" + issueId;
   }
   return issueId;
 }
