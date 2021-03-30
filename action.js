@@ -17,12 +17,13 @@ module.exports = class {
     // const issueId = this.argv.issue;
     const { comment } = this.argv;
 
-    const issuesIDs = this.argv.issue.split(", ");
+    const issuesIDs = this.argv.issue.split(",");
     console.log(`All issues IDs: ${issuesIDs}`)
     // if (Array.isArray(issueId)) {
     console.log(`Issues: ${issueId}`);
     for (let i = 0; i < issuesIDs.length; i++) {
       const issueId = issuesIDs[i];
+      console.log(`Current issue ID: ${issueId}`);
       issueId = makeProperIssueID(issueId);
       console.log(`Adding comment to ${issueId}: \n${comment}`);
       await this.Jira.addComment(issueId, { body: comment });
