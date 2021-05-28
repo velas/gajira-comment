@@ -27,7 +27,6 @@ async function exec () {
     }
 
     console.log('Failed to comment an issue.')
-    process.exit(78)
   } catch (error) {
     console.error(error)
   }
