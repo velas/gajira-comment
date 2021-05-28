@@ -30,7 +30,6 @@ async function exec () {
     process.exit(78)
   } catch (error) {
     console.error(error)
-    process.exit(1)
   }
 }
 
