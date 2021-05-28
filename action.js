@@ -1,5 +1,4 @@
 const Jira = require("./common/net/Jira");
-const core = require('@actions/core');
 
 module.exports = class {
   constructor({ githubEvent, argv, config }) {
@@ -18,14 +17,14 @@ module.exports = class {
     const { comment } = this.argv;
 
     const issuesKeys = this.argv.issues_keys;
-    core.info(`Issues keys: ${issuesKeys}`);
+    console.info(`Issues keys: ${issuesKeys}`);
     const issuesIDs = this.argv.issues_keys.split(', ');
-    core.info(`All issues IDs: ${issuesIDs}`)
+    console.info(`All issues IDs: ${issuesIDs}`)
     for (let i = 0; i < issuesIDs.length; i++) {
       let issueId = issuesIDs[i];
       conre.info(`Current issue ID: ${issueId}`);
       issueId = makeProperIssueID(issueId);
-      core.info(`Adding comment to ${issueId}: \n${comment}`);
+      console.info(`Adding comment to ${issueId}: \n${comment}`);
       await this.Jira.addComment(issueId, { body: comment });
     }
     return {};
