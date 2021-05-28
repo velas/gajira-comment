@@ -1,4 +1,5 @@
 const Jira = require("./common/net/Jira");
+const core = require('@actions/core');
 
 module.exports = class {
   constructor({ githubEvent, argv, config }) {
