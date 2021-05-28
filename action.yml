@@ -4,8 +4,8 @@ branding:
   icon: 'align-left'
   color: 'blue'
 inputs:
-  issue:
-    description: Key of the issue to be commented on
+  issues_keys:
+    description: issues keys as string separated by ", " e.g. "VTX-1, VTX-2"
     required: true
   comment:
     description: Comment

@@ -14,10 +14,9 @@ module.exports = class {
   }
 
   async execute() {
-    // const issueId = this.argv.issue;
     const { comment } = this.argv;
 
-    const issuesIDs = this.argv.issue.split(', ');
+    const issuesIDs = this.argv.issues_keys.split(', ');
     core.info(`All issues IDs: ${issuesIDs}`)
     for (let i = 0; i < issuesIDs.length; i++) {
       let issueId = issuesIDs[i];
