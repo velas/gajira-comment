@@ -22,7 +22,7 @@ module.exports = class {
     console.info(`All issues IDs: ${issuesIDs}`)
     for (let i = 0; i < issuesIDs.length; i++) {
       let issueId = issuesIDs[i];
-      conre.info(`Current issue ID: ${issueId}`);
+      console.info(`Current issue ID: ${issueId}`);
       issueId = makeProperIssueID(issueId);
       console.info(`Adding comment to ${issueId}: \n${comment}`);
       await this.Jira.addComment(issueId, { body: comment });
