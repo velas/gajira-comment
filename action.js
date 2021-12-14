@@ -23,20 +23,9 @@ module.exports = class {
     core.info(`All issues IDs: ${issuesIDs}`)
     for (let i = 0; i < issuesIDs.length; i++) {
       let issueId = issuesIDs[i];
-      core.info(`Current issue ID: ${issueId}`);
-      issueId = makeProperIssueID(issueId);
       core.info(`Adding comment to ${issueId}: \n${comment}`);
       await this.Jira.addComment(issueId, { body: comment });
     }
     return {};
   }
 };
-
-function makeProperIssueID(issue) {
-  let issueId = issue.toUpperCase();
-  issueId = issueId.replace(' ', '-');
-  if (!issueId.includes('VTX-')) {
-    issueId = 'VTX-' + issueId;
-  } 
-  return issueId;
-}
