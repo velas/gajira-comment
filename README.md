@@ -15,9 +15,9 @@ To add comment to an issue you need to specify an issue key and a comment as act
 
 ```yaml
 - name: Comment on issue
-  uses: atlassian/gajira-comment@master
+  uses: velas/jira-comment@master
   with:
-  issues_keys: 'INC-2, INC-4'
+  issues_keys: 'VLX-2, VLX-4'
   comment: ${{ github.event.pusher.name }} pushed to repository: ${{ github.event.repository.full_name }}
 ```
 
