@@ -22,8 +22,6 @@ async function exec () {
       const extendedConfig = Object.assign({}, config, result)
 
       fs.writeFileSync(configPath, YAML.stringify(extendedConfig))
-
-      return
     }
 
     console.log('Failed to comment an issue.')
