@@ -5,10 +5,10 @@ branding:
   color: 'blue'
 inputs:
   issues_keys:
-    description: issues keys as string separated by ", " e.g. "VTX-1, VTX-2"
+    description: issues keys separated by ", " e.g. "VTX-1, VTX-2"
     required: true
   comment:
-    description: Comment
+    description: comment text
     required: true
 runs:
   using: 'node12'
